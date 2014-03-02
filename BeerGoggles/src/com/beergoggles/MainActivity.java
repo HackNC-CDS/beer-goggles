@@ -3,6 +3,9 @@ package com.beergoggles;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
@@ -18,6 +21,23 @@ public class MainActivity extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+    
+    public void LoadImage(View view) {
+    	TextView textview = (TextView) findViewById(R.id.TopText);
+    	textview.setText("Loaded Image.");
+    }
+    public void FindBarcodes(View view) {
+    	TextView textview = (TextView) findViewById(R.id.TopText);
+    	textview.setText("Found barcodes.");
+    }
+    public void RateBeers(View view) {
+    	TextView textview = (TextView) findViewById(R.id.TopText);
+    	textview.setText("Beers rated.");
+    }
+    public void Visualize(View view) {
+    	TextView textview = (TextView) findViewById(R.id.TopText);
+    	textview.setText("Visualizing...");
     }
     
 }

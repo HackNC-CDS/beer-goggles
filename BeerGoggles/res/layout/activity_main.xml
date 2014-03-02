@@ -9,8 +9,41 @@
     tools:context=".MainActivity" >
 
     <TextView
+    	android:id="@+id/TopText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
+        
+    <Button
+        android:id="@+id/LoadImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load Image"
+        android:onClick="LoadImage" 
+        android:layout_below="@+id/TopText" />
+        
+    <Button
+        android:id="@+id/FindBarcodes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Barcodes"
+        android:onClick="FindBarcodes" 
+        android:layout_below="@+id/LoadImage" />
+   
+    <Button
+        android:id="@+id/RateBeers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate Beers" 
+        android:onClick="RateBeers"
+        android:layout_below="@+id/FindBarcodes" />
+        
+    <Button
+        android:id="@+id/Visualize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Visualize"
+        android:onClick="Visualize"
+        android:layout_below="@+id/RateBeers"  />
 
 </RelativeLayout>
