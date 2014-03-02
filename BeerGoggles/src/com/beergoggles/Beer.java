@@ -1,17 +1,28 @@
+/**
+ * @author Dave Perra <perra@cs.unc.edu>
+ * @author Steven Love <slove13@cs.unc.edu>
+ * @author Clinton Freeman <freeman@cs.unc.edu>
+ */
+
 package com.beergoggles;
 
 public class Beer {
-	private final String name = "";
-	private double abv = 0.0;
-	private double rating = 0.0;
 	
-	public String name() {
-		return this.name;
-	}
-	public double rating() {
-		return this.rating;
-	}
-	public double abv() {
-		return this.abv;
-	}
+	public String beer_name = "";
+	public String beer_style = "";
+	public String beer_abv = "";
+	public String brewery_name = "";
+	public String brewery_state = "";
+	public String brewery_country = "";
+	public String ba_score = "";
+	public String ba_rating = "";
+	public String bros_score = "";
+	public String bros_rating = "";
+	public String ratings = "";
+	public String reviews = "";
+	public String rAvg = "";
+	public String pDev = "";
+	
+	public Beer() {}
+	
 }

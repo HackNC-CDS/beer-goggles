@@ -17,7 +17,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.TextView;
 
-class RequestTask extends AsyncTask<String, String, String>{
+class RequestTask extends AsyncTask<String, String, String> {
 
     @Override
     protected String doInBackground(String... uri) {
@@ -41,23 +41,14 @@ class RequestTask extends AsyncTask<String, String, String>{
             //TODO Handle problems..
         } catch (IOException e) {
             //TODO Handle problems..
-        }
-        return responseString;
-    }
-
-    @Override
-    protected void onPostExecute(String result) {
-        super.onPostExecute(result);
-//        Log.v("RESPONSE", result);
-        
-//                String regex_pattern = ".*?Description.*</tr>";
+        }//                String regex_pattern = ".*?Description.*</tr>";
 
         String regex_pattern;
         Pattern pattern;
         Matcher m;
         String input;
         
-        input = result;
+        input = responseString;
         regex_pattern = ".*Description.*";
         
         pattern = Pattern.compile(regex_pattern);
@@ -90,6 +81,16 @@ class RequestTask extends AsyncTask<String, String, String>{
         
         String final_name = m.group(0);
         Log.v("RESPONSE", final_name);
+
+        
+        return final_name;
+    }
+
+    @Override
+    protected void onPostExecute(String result) {
+        super.onPostExecute(result);
+//        Log.v("RESPONSE", result);
+        
 
 //         while (t.find()) {
 //         	for (int i = 0; i < m.groupCount(); i++) {

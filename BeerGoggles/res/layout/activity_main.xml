@@ -2,41 +2,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="left"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <TextView
-    	android:id="@+id/TopText"
+    <RadioGroup
+        android:id="@+id/sort_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-        
-    <Button
-        android:id="@+id/ScanBarcode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Scan a barcode."
-        android:onClick="FindBarcodes" 
-        android:layout_below="@+id/TopText" />
-   
-    <Button
-        android:id="@+id/RateBeers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rate Beers" 
-        android:onClick="RateBeers"
-        android:layout_below="@+id/ScanBarcode" />
-        
-    <Button
-        android:id="@+id/Visualize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Visualize"
-        android:onClick="Visualize"
-        android:layout_below="@+id/RateBeers"  />
+        android:layout_alignLeft="@+id/beer_list"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal" >
 
+        <RadioButton
+            android:id="@+id/radio_ba"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="BA" />
+
+        <RadioButton
+            android:id="@+id/radio_bro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BRO" />
+
+        <RadioButton
+            android:id="@+id/radio_abv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ABV" />
+    </RadioGroup>
+
+    <ListView
+        android:id="@+id/beer_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/add_beer"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/sort_group" >
+
+    </ListView>
+
+    <Button
+        android:id="@+id/add_beer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="Add Beer"
+        android:onClick="onClickAddBeerButton" />
 
 </RelativeLayout>
