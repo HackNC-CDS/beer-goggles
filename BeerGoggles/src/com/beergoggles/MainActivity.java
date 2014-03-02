@@ -21,11 +21,15 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.google.gson.*;
@@ -40,11 +44,20 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        ListView blView = (ListView) findViewById(R.id.beer_list);
 
-//        beer_strings.add("test beer");
+        Beer b = new Beer();
+        b.beer_name = "Test beer";
+        b.ba_rating = "5.0";
+        beers.add(b);
         
+        ArrayAdapter<Beer> adapter = new ArrayAdapter<Beer>(this, android.R.layout.simple_expandable_list_item_1, beers);
+        ListView list_view = (ListView) findViewById(R.id.beer_list);
+        list_view.setAdapter(adapter);
+        
+        Beer b2 = new Beer();
+        b2.beer_name = "Test beer 2";
+        b2.ba_rating = "4.3";
+        beers.add(b2);
         // This is the array adapter, it takes the context of the activity as a 
         // first parameter, the type of list view as a second parameter and your 
         // array as a third parameter.

@@ -6,7 +6,12 @@
 
 package com.beergoggles;
 
+
 public class Beer {
+	public static final int RATING = 1;
+	public static final int ABV = 2;
+	public static final int BRO = 3;
+	public static int MODE = RATING;
 	
 	public String beer_name = "";
 	public String beer_style = "";
@@ -25,4 +30,15 @@ public class Beer {
 	
 	public Beer() {}
 	
+	@Override
+	public String toString() {
+		if(MODE == RATING) {
+			return this.beer_name + ": " + this.ba_rating;
+		} else if (MODE == ABV) {
+			return this.beer_name + ": " + this.beer_abv;
+		} else if (MODE == BRO) {
+			return this.beer_name + ": " + this.bros_rating;
+		}
+		return this.beer_name;
+	}
 }
