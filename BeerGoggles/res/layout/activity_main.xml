@@ -13,35 +13,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
-        
-    <Button
-        android:id="@+id/ScanBarcode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Scan a barcode."
-        android:onClick="FindBarcodes" 
-        android:layout_below="@+id/TopText" />
-   
-    <Button
-        android:id="@+id/RateBeers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rate Beers" 
-        android:onClick="RateBeers"
-        android:layout_below="@+id/FindBarcodes" />
-        
-    <Button
-        android:id="@+id/Visualize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Visualize"
-        android:onClick="Visualize"
-        android:layout_below="@+id/RateBeers"  />
 
 	<ImageView
         android:id="@+id/sampleImageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Visualize"/>
+
+	<Button
+	    android:id="@+id/Visualize"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/sampleImageView"
+	    android:layout_below="@+id/ScanBarcode"
+	    android:onClick="Visualize"
+	    android:text="Visualize" />
+
+	<Button
+	    android:id="@+id/ScanBarcode"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/RateBeers"
+	    android:layout_below="@+id/RateBeers"
+	    android:onClick="FindBarcodes"
+	    android:text="Scan a barcode." />
+
+	<Button
+	    android:id="@+id/RateBeers"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/Visualize"
+	    android:layout_below="@+id/TopText"
+	    android:layout_marginTop="25dp"
+	    android:onClick="RateBeers"
+	    android:text="Rate Beers" />
 
 </RelativeLayout>

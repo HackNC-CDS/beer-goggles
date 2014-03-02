@@ -1,10 +1,5 @@
 package com.beergoggles;
 
-import org.opencv.android.Utils;
-import org.opencv.core.CvType;
-import org.opencv.core.Mat;
-import org.opencv.imgproc.Imgproc;
-
 import android.os.Bundle;
 import android.os.Environment;
 import android.app.Activity;
@@ -15,8 +10,6 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-	public Mat original_image = null;
-	
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +28,12 @@ public class MainActivity extends Activity {
     	TextView textview = (TextView) findViewById(R.id.TopText);
     	textview.setText("Found barcodes.");
     }
+    
     public void RateBeers(View view) {
     	TextView textview = (TextView) findViewById(R.id.TopText);
     	textview.setText("Beers rated.");
     }
+    
     public void Visualize(View view) {
     	TextView textview = (TextView) findViewById(R.id.TopText);
     	textview.setText("Visualizing...");
