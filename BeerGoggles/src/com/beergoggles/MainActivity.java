@@ -6,32 +6,17 @@
 
 package com.beergoggles;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.StatusLine;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
 import android.os.Bundle;
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
-import android.view.LayoutInflater;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import com.google.gson.*;
 
