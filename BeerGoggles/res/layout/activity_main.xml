@@ -15,20 +15,12 @@
         android:text="@string/hello_world" />
         
     <Button
-        android:id="@+id/LoadImage"
+        android:id="@+id/ScanBarcode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Load Image"
-        android:onClick="LoadImage" 
-        android:layout_below="@+id/TopText" />
-        
-    <Button
-        android:id="@+id/FindBarcodes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Find Barcodes"
+        android:text="Scan a barcode."
         android:onClick="FindBarcodes" 
-        android:layout_below="@+id/LoadImage" />
+        android:layout_below="@+id/TopText" />
    
     <Button
         android:id="@+id/RateBeers"
@@ -45,5 +37,11 @@
         android:text="Visualize"
         android:onClick="Visualize"
         android:layout_below="@+id/RateBeers"  />
+
+	<ImageView
+        android:id="@+id/sampleImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Visualize"/>
 
 </RelativeLayout>
