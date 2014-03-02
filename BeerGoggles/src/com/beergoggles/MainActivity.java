@@ -43,17 +43,17 @@ public class MainActivity extends Activity {
         
         ListView blView = (ListView) findViewById(R.id.beer_list);
 
-        beer_strings.add("test beer");
+//        beer_strings.add("test beer");
         
         // This is the array adapter, it takes the context of the activity as a 
         // first parameter, the type of list view as a second parameter and your 
         // array as a third parameter.
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                this, 
-                R.id.beer_list,
-                beer_strings );
-
-        blView.setAdapter(arrayAdapter); 
+//        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+//                this, 
+//                R.id.beer_list,
+//                beer_strings );
+//
+//        blView.setAdapter(arrayAdapter); 
     }
 
     @Override
@@ -96,6 +96,8 @@ public class MainActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    	
+    	beerName = beerName.replaceAll("\\s+", "\\+");
     	
     	HttpClient httpclient = new DefaultHttpClient();
         HttpResponse response;

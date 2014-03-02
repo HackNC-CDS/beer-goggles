@@ -47,6 +47,7 @@ class RequestTask extends AsyncTask<String, String, String> {
         Pattern pattern;
         Matcher m;
         String input;
+        boolean found;
         
         input = responseString;
         regex_pattern = ".*Description.*";
@@ -54,9 +55,15 @@ class RequestTask extends AsyncTask<String, String, String> {
         pattern = Pattern.compile(regex_pattern);
         m = pattern.matcher(input);
         
-        m.find();
+        found = m.find();
         Log.v("RESPONSE", "mgroup0");
-        String descriptionLine = m.group(0);
+        String descriptionLine;
+        if(found){
+        	descriptionLine = m.group(0);
+        }
+        else{
+        	descriptionLine = "none";
+        }
         
         Log.v("RESPONSE", descriptionLine);
 
@@ -68,18 +75,30 @@ class RequestTask extends AsyncTask<String, String, String> {
         
         m.find();
         m.find();
-        m.find();
+        found = m.find();
 
-        input = m.group(0);
+        if(found){
+        	input = m.group(0);
+        }
+        else{
+        	input = "none";
+        }
+
         Log.v("RESPONSE",input);
         
         regex_pattern = "[a-z A-Z0-9]+";
         pattern = Pattern.compile(regex_pattern);
         m = pattern.matcher(input);
         
-        m.find();m.find();
-        
-        String final_name = m.group(0);
+        m.find();
+        found = m.find();
+        String final_name;
+        if(found){
+        	final_name = m.group(0);
+        }
+        else{
+        	final_name = "none";
+        }
         Log.v("RESPONSE", final_name);
 
         
