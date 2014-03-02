@@ -23,19 +23,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
+            android:onClick="BA"
             android:text="BA" />
 
         <RadioButton
             android:id="@+id/radio_bro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="BRO"
             android:text="BRO" />
 
         <RadioButton
             android:id="@+id/radio_abv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="ABV"
             android:text="ABV" />
+            
+     
     </RadioGroup>
 
     <ListView

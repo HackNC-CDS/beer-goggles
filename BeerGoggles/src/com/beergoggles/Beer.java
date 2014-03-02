@@ -19,11 +19,15 @@ import java.util.Comparator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import android.util.Log;
+
 
 public class Beer {
 	public static final int RATING = 1;
 	public static final int ABV = 2;
 	public static final int BRO = 3;
+	public static final int PRICE = 4;
+	public static final int BANG = 5;
 	public static int MODE = RATING;
 	
 	public String beer_name = "";
@@ -46,7 +50,6 @@ public class Beer {
 	String upc;
 	
 	public Beer() {}
-	
 	
 	boolean initialized = false;
 	public Beer(String a, String b, String c, String d,String e){
@@ -265,22 +268,23 @@ public class Beer {
 	    return null;
 	}
 	
-	public static ArrayList<Beer> sort(ArrayList<Beer> beers, String sortby){
+	public static ArrayList<Beer> sort(ArrayList<Beer> beers){
 		//beers.
 		Comparator<Beer> comp;
-		if(sortby=="ba"){
+		Log.v("MODE",String.valueOf(MODE));
+		if(MODE==RATING){
 			comp = new BAComparator();
 		}
-		else if(sortby =="abv"){
+		else if(MODE == ABV){
 			comp = new ABVComparator();
 		}
-		else if(sortby == "bro"){
+		else if(MODE == BRO){
 			comp = new BroComparator();
 		}
-		else if(sortby == "price"){
+		else if(MODE == PRICE){
 			comp = new PriceComparator();
 		}
-		else if(sortby == "bang"){
+		else if(MODE == BANG){
 			comp = new BangComparator();
 		}
 		else{
@@ -309,6 +313,13 @@ public class Beer {
 			return this.beer_name + ": " + this.beer_abv;
 		} else if (MODE == BRO) {
 			return this.beer_name + ": " + this.bros_score;
+		}
+		else if(MODE == PRICE){
+			return this.beer_name + ": " + this.price();
+		}
+		else if(MODE == BANG){
+			return this.beer_name; //": " //+ this.bang();
+
 		}
 		return this.beer_name;
 	}
