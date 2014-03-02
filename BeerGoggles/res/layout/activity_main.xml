@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:text="Rate Beers" 
         android:onClick="RateBeers"
-        android:layout_below="@+id/FindBarcodes" />
+        android:layout_below="@+id/ScanBarcode" />
         
     <Button
         android:id="@+id/Visualize"
