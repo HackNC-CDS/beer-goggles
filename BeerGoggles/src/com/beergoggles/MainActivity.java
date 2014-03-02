@@ -22,6 +22,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -85,44 +86,18 @@ public class MainActivity extends Activity {
     public Beer getBeerFromUPC(String upc) {
     	RequestTask rt = new RequestTask();
     	rt.execute("http://www.upcdatabase.com/item/" + upc);
-    	String beerName = "";
+    	String beerJSON = "";
     	try {
-			//UpdateAndDisplayBeerName(rt.get());
-    		beerName = rt.get();
+    		beerJSON = rt.get();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	
-    	beerName = beerName.replaceAll("\\s+", "\\+");
-    	
-    	HttpClient httpclient = new DefaultHttpClient();
-        HttpResponse response;
-        String responseString = "";
-        try {
-            response = httpclient.execute(new HttpGet("http://beergoggles-freemancw.rhcloud.com/beerSearch/"+beerName));
-            StatusLine statusLine = response.getStatusLine();
-            if (statusLine.getStatusCode() == HttpStatus.SC_OK) {
-                ByteArrayOutputStream out = new ByteArrayOutputStream();
-                response.getEntity().writeTo(out);
-                out.close();
-                responseString = out.toString();
-            } else {
-                // close the connection
-                response.getEntity().getContent().close();
-                throw new IOException(statusLine.getReasonPhrase());
-            }
-        } catch (ClientProtocolException e) {
-            //TODO Handle problems..
-        } catch (IOException e) {
-            //TODO Handle problems..
-        }
 
         Gson gson = new Gson();
-        return gson.fromJson(responseString, Beer.class); 
+        Log.v("JSON", beerJSON.substring(1, beerJSON.length()-2));
+        return gson.fromJson(beerJSON.substring(1, beerJSON.length()-2), Beer.class); 
     }
     
 }
