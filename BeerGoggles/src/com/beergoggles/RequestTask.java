@@ -15,6 +15,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.TextView;
 
 class RequestTask extends AsyncTask<String, String, String>{
 
@@ -87,9 +88,9 @@ class RequestTask extends AsyncTask<String, String, String>{
         
         m.find();m.find();
         
-        input = m.group(0);
-        Log.v("RESPONSE",input);
-//         
+        String final_name = m.group(0);
+        Log.v("RESPONSE", final_name);
+
 //         while (t.find()) {
 //         	for (int i = 0; i < m.groupCount(); i++) {
 //         		Log.v("RESPONSE", m.group(i));

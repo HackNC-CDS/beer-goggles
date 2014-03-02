@@ -48,8 +48,13 @@ public class MainActivity extends Activity {
     
     private Beer FindBeerFromUPC(String upc) {
     	new RequestTask().execute("http://www.upcdatabase.com/item/" + upc);
-    	return null;
     	
+    	return null;
+    }
+    
+    public void UpdateAndDisplayBeerName(String s) {
+		TextView textview = (TextView) findViewById(R.id.TopText);
+    	textview.setText(s);
     }
     
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
