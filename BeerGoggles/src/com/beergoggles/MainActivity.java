@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
     }
     
     private Beer FindBeerFromUPC(String upc) {
-    	new RequestTask().execute("http://stackoverflow.com");
+    	new RequestTask().execute("http://www.upcdatabase.com/item/" + upc);
     	return null;
     	
     }
