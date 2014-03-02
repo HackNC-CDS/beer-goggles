@@ -13,8 +13,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
-<<<<<<< HEAD
-=======
         
     <Button
         android:id="@+id/ScanBarcode"
@@ -39,40 +37,6 @@
         android:text="Visualize"
         android:onClick="Visualize"
         android:layout_below="@+id/RateBeers"  />
->>>>>>> d0d17e3f04afce914217ec0dc891c9d2275fe01c
 
-	<ImageView
-        android:id="@+id/sampleImageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Visualize"/>
-
-	<Button
-	    android:id="@+id/Visualize"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignLeft="@+id/sampleImageView"
-	    android:layout_below="@+id/ScanBarcode"
-	    android:onClick="Visualize"
-	    android:text="Visualize" />
-
-	<Button
-	    android:id="@+id/ScanBarcode"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignLeft="@+id/RateBeers"
-	    android:layout_below="@+id/RateBeers"
-	    android:onClick="FindBarcodes"
-	    android:text="Scan a barcode." />
-
-	<Button
-	    android:id="@+id/RateBeers"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignLeft="@+id/Visualize"
-	    android:layout_below="@+id/TopText"
-	    android:layout_marginTop="25dp"
-	    android:onClick="RateBeers"
-	    android:text="Rate Beers" />
 
 </RelativeLayout>
