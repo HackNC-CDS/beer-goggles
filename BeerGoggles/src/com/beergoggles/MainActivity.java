@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	public ArrayList<String> upcs = new ArrayList<String>();	
+	public ArrayList<Beer> beers = new ArrayList<Beer>();
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +35,21 @@ public class MainActivity extends Activity {
     	textview.setText("Found barcodes.");
     }
     public void RateBeers(View view) {
-    	TextView textview = (TextView) findViewById(R.id.TopText);
-    	textview.setText("Beers rated.");
+    	for (String i : upcs) {
+    		Beer beer = FindBeerFromUPC(i);
+    		beers.add(beer);
+    		// Do something with the beer
+    	}
     }
     public void Visualize(View view) {
     	TextView textview = (TextView) findViewById(R.id.TopText);
     	textview.setText("Visualizing...");
+    }
+    
+    private Beer FindBeerFromUPC(String upc) {
+    	new RequestTask().execute("http://stackoverflow.com");
+    	return null;
+    	
     }
     
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
