@@ -13,6 +13,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
+<<<<<<< HEAD
+=======
+        
+    <Button
+        android:id="@+id/ScanBarcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan a barcode."
+        android:onClick="FindBarcodes" 
+        android:layout_below="@+id/TopText" />
+   
+    <Button
+        android:id="@+id/RateBeers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate Beers" 
+        android:onClick="RateBeers"
+        android:layout_below="@+id/ScanBarcode" />
+        
+    <Button
+        android:id="@+id/Visualize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Visualize"
+        android:onClick="Visualize"
+        android:layout_below="@+id/RateBeers"  />
+>>>>>>> d0d17e3f04afce914217ec0dc891c9d2275fe01c
 
 	<ImageView
         android:id="@+id/sampleImageView"
