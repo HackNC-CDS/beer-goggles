@@ -2,6 +2,8 @@ package com.beergoggles;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -45,7 +47,58 @@ class RequestTask extends AsyncTask<String, String, String>{
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        Log.v("RESPONSE", result);
+//        Log.v("RESPONSE", result);
+        
+//                String regex_pattern = ".*?Description.*</tr>";
+
+        String regex_pattern;
+        Pattern pattern;
+        Matcher m;
+        String input;
+        
+        input = result;
+        regex_pattern = ".*Description.*";
+        
+        pattern = Pattern.compile(regex_pattern);
+        m = pattern.matcher(input);
+        
+        m.find();
+        Log.v("RESPONSE", "mgroup0");
+        String descriptionLine = m.group(0);
+        
+        Log.v("RESPONSE", descriptionLine);
+
+        input = descriptionLine;
+        regex_pattern = "<td>[^<]*</td>";
+        
+        pattern = Pattern.compile(regex_pattern);
+        m = pattern.matcher(input);
+        
+        m.find();
+        m.find();
+        m.find();
+
+        input = m.group(0);
+        Log.v("RESPONSE",input);
+        
+        regex_pattern = "[a-z A-Z0-9]+";
+        pattern = Pattern.compile(regex_pattern);
+        m = pattern.matcher(input);
+        
+        m.find();m.find();
+        
+        input = m.group(0);
+        Log.v("RESPONSE",input);
+//         
+//         while (t.find()) {
+//         	for (int i = 0; i < m.groupCount(); i++) {
+//         		Log.v("RESPONSE", m.group(i));
+//         		// matched text: regexMatcher.group(i)
+//         		// match start: regexMatcher.start(i)
+//         		// match end: regexMatcher.end(i)
+//         	}
+//         } 
+
         //Do anything with response..
     }
 }
