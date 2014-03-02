@@ -1,5 +1,7 @@
 package com.beergoggles;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -9,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
-	public String upc = "";	
+	public ArrayList<String> upcs;	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,8 +50,13 @@ public class MainActivity extends Activity {
     	Toast t = Toast.makeText(this, "GOT IT", Toast.LENGTH_LONG);
     	IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
     	if (scanResult != null) {
-    		TextView textview = (TextView) findViewById(R.id.TopText);
-        	textview.setText(scanResult.getContents());
+    		upcs.add(scanResult.getContents());
+			TextView textview = (TextView) findViewById(R.id.TopText);
+			String u = "";
+    		for(String i : upcs) {
+    			u += i + ", ";
+    		}
+			textview.setText(scanResult.getContents());
     	}
     }
     
