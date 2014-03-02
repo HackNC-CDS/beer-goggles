@@ -102,15 +102,15 @@ public class Beer {
 		return drinks/price();
 	}
 	private void googleInfo(){
-		//String html = getHTML(getLink(upc));
+//		String html = getHTML(getLink(upc));
 		
-		price = "$"+upc.charAt(3)+"."+upc.charAt(1)+upc.charAt(4);
-		amt = ""+upc.charAt(2)+upc.charAt(5)+"." + upc.charAt(6) + upc.charAt(7)+" fl oz";
+		//price = "$"+upc.charAt(3)+"."+upc.charAt(1)+upc.charAt(4);
+		//amt = ""+upc.charAt(2)+upc.charAt(5)+"." + upc.charAt(6) + upc.charAt(7)+" fl oz";
 		
-		price = "$5.00";
+		price = "$4.00";
 		amt = "12 fl oz";
-		//price = getPrice(html);
-		//amt = getAmt(html);
+//		price = getPrice(html);
+//		amt = getAmt(html);
 		initialized=true;
 	}
 	
@@ -318,7 +318,7 @@ public class Beer {
 			return this.beer_name + ": " + this.price();
 		}
 		else if(MODE == BANG){
-			return this.beer_name; //": " //+ this.bang();
+			return this.beer_name + ": " + this.bang();
 
 		}
 		return this.beer_name;

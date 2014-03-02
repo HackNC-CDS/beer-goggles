@@ -69,17 +69,17 @@ public class MainActivity extends Activity {
 		adapter.notifyDataSetChanged();
 	}
 	
-//	public void BANG(View v) {
-//		Beer.MODE = Beer.BANG;
-//		Beer.sort(beers);
-//		adapter.notifyDataSetChanged();
-//	}
-//	
-//	public void PRICE(View v) {
-//		Beer.MODE = Beer.PRICE;
-//		Beer.sort(beers);
-//		adapter.notifyDataSetChanged();
-//	}
+	public void BANG(View v) {
+		Beer.MODE = Beer.BANG;
+		Beer.sort(beers);
+		adapter.notifyDataSetChanged();
+	}
+	
+	public void PRICE(View v) {
+		Beer.MODE = Beer.PRICE;
+		Beer.sort(beers);
+		adapter.notifyDataSetChanged();
+	}
     
     public void onClickAddBeerButton(View view) {
     	IntentIntegrator integrator = new IntentIntegrator(this);

@@ -40,7 +40,19 @@
             android:onClick="ABV"
             android:text="ABV" />
             
-     
+        <RadioButton
+            android:id="@+id/radio_bang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="BANG"
+            android:text="BANG" />
+            
+        <RadioButton
+            android:id="@+id/radio_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="PRICE"
+            android:text="$$$" />
     </RadioGroup>
 
     <ListView
