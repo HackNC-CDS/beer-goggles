@@ -45,29 +45,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Beer b = new Beer();
-        b.beer_name = "Test beer";
-        b.ba_rating = "5.0";
-        beers.add(b);
         
         ArrayAdapter<Beer> adapter = new ArrayAdapter<Beer>(this, android.R.layout.simple_expandable_list_item_1, beers);
         ListView list_view = (ListView) findViewById(R.id.beer_list);
         list_view.setAdapter(adapter);
-        
-        Beer b2 = new Beer();
-        b2.beer_name = "Test beer 2";
-        b2.ba_rating = "4.3";
-        beers.add(b2);
-        // This is the array adapter, it takes the context of the activity as a 
-        // first parameter, the type of list view as a second parameter and your 
-        // array as a third parameter.
-//        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-//                this, 
-//                R.id.beer_list,
-//                beer_strings );
-//
-//        blView.setAdapter(arrayAdapter); 
     }
 
     @Override
@@ -91,8 +72,6 @@ public class MainActivity extends Activity {
     		Beer beer = getBeerFromUPC(iresult.getContents()); 
     		beers.add(beer);
     		beer_strings.add(beer.beer_name);
-    		
-    		//upcs.add(iresult.getContents());
     	}
     }
     
