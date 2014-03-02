@@ -1,7 +1,10 @@
 package com.beergoggles;
 
+<<<<<<< HEAD
+=======
 import java.util.ArrayList;
 
+>>>>>>> d0d17e3f04afce914217ec0dc891c9d2275fe01c
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -11,7 +14,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
+<<<<<<< HEAD
+	
+=======
 	public ArrayList<String> upcs;	
+>>>>>>> d0d17e3f04afce914217ec0dc891c9d2275fe01c
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,10 +44,12 @@ public class MainActivity extends Activity {
     	TextView textview = (TextView) findViewById(R.id.TopText);
     	textview.setText("Found barcodes.");
     }
+    
     public void RateBeers(View view) {
     	TextView textview = (TextView) findViewById(R.id.TopText);
     	textview.setText("Beers rated.");
     }
+    
     public void Visualize(View view) {
     	TextView textview = (TextView) findViewById(R.id.TopText);
     	textview.setText("Visualizing...");
