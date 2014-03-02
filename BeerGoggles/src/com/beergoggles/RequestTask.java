@@ -19,20 +19,19 @@ import android.widget.TextView;
 
 class RequestTask extends AsyncTask<String, String, String> {
 
-    @Override
-    protected String doInBackground(String... uri) {
-        HttpClient httpclient = new DefaultHttpClient();
+	private String getBeerName(String upc) {
+		HttpClient httpclient = new DefaultHttpClient();
         HttpResponse response;
         String responseString = null;
         try {
-            response = httpclient.execute(new HttpGet(uri[0]));
+            response = httpclient.execute(new HttpGet(upc));
             StatusLine statusLine = response.getStatusLine();
-            if(statusLine.getStatusCode() == HttpStatus.SC_OK){
+            if (statusLine.getStatusCode() == HttpStatus.SC_OK) {
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
                 response.getEntity().writeTo(out);
                 out.close();
                 responseString = out.toString();
-            } else{
+            } else {
                 //Closes the connection.
                 response.getEntity().getContent().close();
                 throw new IOException(statusLine.getReasonPhrase());
@@ -58,10 +57,9 @@ class RequestTask extends AsyncTask<String, String, String> {
         found = m.find();
         Log.v("RESPONSE", "mgroup0");
         String descriptionLine;
-        if(found){
+        if (found) {
         	descriptionLine = m.group(0);
-        }
-        else{
+        } else {
         	descriptionLine = "none";
         }
         
@@ -77,10 +75,9 @@ class RequestTask extends AsyncTask<String, String, String> {
         m.find();
         found = m.find();
 
-        if(found){
+        if (found) {
         	input = m.group(0);
-        }
-        else{
+        } else {
         	input = "none";
         }
 
@@ -93,33 +90,51 @@ class RequestTask extends AsyncTask<String, String, String> {
         m.find();
         found = m.find();
         String final_name;
-        if(found){
+        if (found) {
         	final_name = m.group(0);
-        }
-        else{
+        } else {
         	final_name = "none";
         }
         Log.v("RESPONSE", final_name);
-
         
         return final_name;
+	}
+	
+	private String getBeerJSON(String name) {
+		HttpClient httpclient = new DefaultHttpClient();
+        HttpResponse response;
+        String responseString = "";
+        try {
+            response = httpclient.execute(new HttpGet("http://beergoggles-freemancw.rhcloud.com/beerSearch/"+name.replaceAll("\\s+","\\+")));
+            StatusLine statusLine = response.getStatusLine();
+            if (statusLine.getStatusCode() == HttpStatus.SC_OK) {
+                ByteArrayOutputStream out = new ByteArrayOutputStream();
+                response.getEntity().writeTo(out);
+                out.close();
+                responseString = out.toString();
+            } else {
+                // close the connection
+                response.getEntity().getContent().close();
+                throw new IOException(statusLine.getReasonPhrase());
+            }
+        } catch (ClientProtocolException e) {
+            //TODO Handle problems..
+        } catch (IOException e) {
+            //TODO Handle problems..
+        }
+        
+        Log.v("JSON", responseString);
+        
+        return responseString;
+    }
+	
+    @Override
+    protected String doInBackground(String... uri) {
+    	return getBeerJSON(getBeerName(uri[0]));
     }
 
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-//        Log.v("RESPONSE", result);
-        
-
-//         while (t.find()) {
-//         	for (int i = 0; i < m.groupCount(); i++) {
-//         		Log.v("RESPONSE", m.group(i));
-//         		// matched text: regexMatcher.group(i)
-//         		// match start: regexMatcher.start(i)
-//         		// match end: regexMatcher.end(i)
-//         	}
-//         } 
-
-        //Do anything with response..
     }
 }
